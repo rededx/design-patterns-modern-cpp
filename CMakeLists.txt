@@ -4,29 +4,31 @@ project(CppDesignPatterns)
 
 set(PATTERNS
     abstractFactory
+    factoryMethod
+    builder
+    prototype
+    singleton
     # adapter
     # bridge
-    builder
     # chain-of-responsibility
     # command
     # composite
     # decorator
     # facade
-    # factory-method
     # flyweight
     # interpreter
     # iterator
     # mediator
     # memento
     # observer
-    # prototype
     # proxy
-    # singleton
     # state
     # strategy
     # template-method
     # visitor
 )
+
+find_package(Threads REQUIRED)
 
 foreach(_dir IN ITEMS ${PATTERNS})
     file(GLOB _files "${_dir}/*.cpp")
@@ -42,7 +44,9 @@ foreach(_dir IN ITEMS ${PATTERNS})
         message(STATUS "  ${_dir}/${_file_name} is going to be built")
         
         add_executable(${_project_name} "${_dir}/${_file_name}")
+       
         set_property(TARGET ${_project_name} PROPERTY CXX_STANDARD 17)
+        target_link_libraries(${_project_name} Threads::Threads)
     endforeach()
     
 endforeach()
