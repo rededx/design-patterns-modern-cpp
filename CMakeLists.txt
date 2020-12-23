@@ -8,45 +8,31 @@ set(PATTERNS
     builder
     prototype
     singleton
-    # adapter
-    # bridge
-    # chain-of-responsibility
-    # command
-    # composite
-    # decorator
-    # facade
-    # flyweight
-    # interpreter
-    # iterator
-    # mediator
-    # memento
-    # observer
-    # proxy
-    # state
-    # strategy
-    # template-method
+    adapter
+    bridge
+    composite
+    # chain-of-responsibility command decorator facade flyweight interpreter
+    # iterator mediator memento observer proxy state strategy template-method
     # visitor
 )
 
 find_package(Threads REQUIRED)
 
 foreach(_dir IN ITEMS ${PATTERNS})
-    file(GLOB _files "${_dir}/*.cpp")
-    message(STATUS "Pattern `${_dir}':")
+  file(GLOB _files "${_dir}/*.cpp")
+  message(STATUS "Pattern `${_dir}':")
 
-    foreach(_file IN ITEMS ${_files})
+  foreach(_file IN ITEMS ${_files})
 
-        get_filename_component(_file_name
-                                ${_file} NAME
-        )
+    get_filename_component(_file_name ${_file} NAME)
 
-        set(_project_name "${_file_name}")
-        message(STATUS "  ${_dir}/${_file_name} is going to be built")
-        
-        add_executable(${_project_name} "${_dir}/${_file_name}")
-       
-        set_property(TARGET ${_project_name} PROPERTY CXX_STANDARD 17)
-        target_link_libraries(${_project_name} Threads::Threads)
-    endforeach()
-    
+    set(_project_name "${_file_name}")
+    message(STATUS "  ${_dir}/${_file_name} is going to be built")
+
+    add_executable(${_project_name} "${_dir}/${_file_name}")
+
+    set_property(TARGET ${_project_name} PROPERTY CXX_STANDARD 17)
+    target_link_libraries(${_project_name} Threads::Threads)
+  endforeach()
+
 endforeach()
