@@ -16,13 +16,14 @@ set(PATTERNS
     facade
     flyweight
     proxy
-    # chain-of-responsibility
-    # command
+    
+    chainOfResponsibility
+    command
+    iterator
+    mediator
+    memento
+    observer
     # interpreter
-    # iterator
-    # mediator
-    # memento
-    # observer
     # state
     # strategy
     # template-method
