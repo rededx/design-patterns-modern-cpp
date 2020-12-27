@@ -71,7 +71,7 @@ int main() {
     std::shared_ptr<AbstractExpression> a =
         std::make_shared<TerminalExpression>("A");
     std::shared_ptr<AbstractExpression> b =
-        std::make_shared<TerminalExpression>("");
+        std::make_shared<TerminalExpression>("B");
     std::shared_ptr<AbstractExpression> exp =
         std::make_shared<NonterminalExpression>(a, b);
 
