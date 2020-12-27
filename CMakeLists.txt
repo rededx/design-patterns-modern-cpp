@@ -23,11 +23,11 @@ set(PATTERNS
     mediator
     memento
     observer
-    # interpreter
-    # state
-    # strategy
-    # template-method
-    # visitor
+    state
+    strategy
+    templateMethod
+    visitor
+    interpreter
 )
 
 find_package(Threads REQUIRED)
