@@ -28,6 +28,10 @@ set(PATTERNS
     templateMethod
     visitor
     interpreter
+
+    nullObject
+
+    raii
 )
 
 find_package(Threads REQUIRED)
